@@ -109,6 +109,9 @@ class YoutubePlayerParams {
 
   /// The user agent for the player.
   final String? userAgent;
+  
+  /// The http referrer header
+  final String? referrer;
 
   /// Defines player parameters for the youtube player.
   const YoutubePlayerParams({
@@ -128,6 +131,7 @@ class YoutubePlayerParams {
     this.playsInline = true,
     this.strictRelatedVideos = false,
     this.userAgent,
+    this.referrer,
   });
 
   /// Creates [Map] representation of [YoutubePlayerParams].
