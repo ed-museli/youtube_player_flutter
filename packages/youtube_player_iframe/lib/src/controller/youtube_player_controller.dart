@@ -61,6 +61,7 @@ class YoutubePlayerController implements YoutubePlayerIFrameAPI {
         _youtubeJSChannelName,
         onMessageReceived: _eventHandler,
       )
+      ..runJavaScript("document.referrer = 'https://museli.app';")
       ..enableZoom(false);
 
     final webViewPlatform = webViewController.platform;
