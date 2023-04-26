@@ -112,6 +112,9 @@ class YoutubePlayerParams {
   
   /// The http referrer header
   final String? referrer;
+  
+  /// Any parameters that you would like to pass to youtube, eg. widget_referrer.
+  final Map? extraParams;
 
   /// Defines player parameters for the youtube player.
   const YoutubePlayerParams({
@@ -132,6 +135,7 @@ class YoutubePlayerParams {
     this.strictRelatedVideos = false,
     this.userAgent,
     this.referrer,
+    this.extraParams,
   });
 
   /// Creates [Map] representation of [YoutubePlayerParams].
@@ -153,6 +157,7 @@ class YoutubePlayerParams {
       if (origin != null && !kIsWeb) 'origin': origin,
       'playsinline': _boolean(playsInline),
       'rel': _boolean(!strictRelatedVideos),
+      if (extraParams != null) ...extraParams!,
     };
   }
 
